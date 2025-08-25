@@ -22,7 +22,7 @@ const AdminMessages = () => {
   const fetchMessages = async () => {
     try {
       const params = new URLSearchParams(filters);
-      const response = await axios.get(`http://localhost:5000/api/messages?${params}`);
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/messages?${params}`);
       
       if (response.data.success) {
         setMessages(response.data.data.messages);
